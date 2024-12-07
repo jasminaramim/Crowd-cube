@@ -50,6 +50,8 @@ const Login = () => {
   };
 
   return (
+
+    // this is login page >>>>> 
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex">
         <div className="text-center lg:text-left">
