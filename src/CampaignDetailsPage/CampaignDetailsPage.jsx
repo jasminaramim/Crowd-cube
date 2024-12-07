@@ -35,7 +35,7 @@ const CampaignDetailsPage = () => {
             navigate("/login");
             return;
         }
-
+        // show the sweet alert
         if (!donationAmount || donationAmount <= 0) {
             Swal.fire({
                 title: "Invalid Donation Amount",
@@ -117,31 +117,33 @@ const CampaignDetailsPage = () => {
     }
 
     return (
+
+        // this is details page
         <div className="max-w-md mx-auto mt-10 p-4 border rounded-lg shadow-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
             <div className="border rounded-lg p-4">
-            <h2 className="text-3xl font-semibold mb-5">{campaign.title}</h2>
-            <img
-                src={campaign.image}
-                alt={campaign.title}
-                className="w-full h-64 object-cover rounded-md mb-5"
-            />
-
-            <div className="mb-4">
-                <h3 className="text-lg font-bold border-b ">Description:</h3>
-                <p className="text-gray-700">{campaign.description}</p>
-            </div>
-            <div className="flex justify-between ">
+                <h2 className="text-3xl font-semibold mb-5">{campaign.title}</h2>
+                <img
+                    src={campaign.image}
+                    alt={campaign.title}
+                    className="w-full h-64 object-cover rounded-md mb-5"
+                />
 
                 <div className="mb-4">
-                    <h3 className="text-lg font-medium">Goal Amount:</h3>
-                    <p>${campaign.goalAmount}</p>
+                    <h3 className="text-lg font-bold border-b ">Description:</h3>
+                    <p className="text-gray-700">{campaign.description}</p>
                 </div>
+                <div className="flex justify-between ">
 
-                <div className="mb-4">
-                    <h3 className="text-lg font-medium">Deadline:</h3>
-                    <p>{new Date(campaign.deadline).toLocaleDateString()}</p>
+                    <div className="mb-4">
+                        <h3 className="text-lg font-medium">Goal Amount:</h3>
+                        <p>${campaign.goalAmount}</p>
+                    </div>
+
+                    <div className="mb-4">
+                        <h3 className="text-lg font-medium">Deadline:</h3>
+                        <p>{new Date(campaign.deadline).toLocaleDateString()}</p>
+                    </div>
                 </div>
-            </div>
             </div>
 
 
