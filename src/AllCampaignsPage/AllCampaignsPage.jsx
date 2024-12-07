@@ -27,6 +27,7 @@ const AllCampaignsPage = () => {
   };
 
   return (
+    // all campaign show here 
     <div className="overflow-x-auto p-5">
       <h2 className="text-3xl font-semibold text-center mb-6">All Campaigns</h2>
 
