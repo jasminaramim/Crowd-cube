@@ -29,6 +29,7 @@ const ForgotPassword = () => {
   };
 
   return (
+    // this is forget pass section 
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex">
         <h2 className="text-4xl font-bold text-center mb-4">Forgot Password</h2>
