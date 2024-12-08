@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; 
 import Swal from 'sweetalert2';
@@ -25,9 +26,11 @@ const UpdateCampaign = () => {
                     setCampaign(data);
                 } else {
                     console.error('Error fetching campaign:', response.statusText);
+                    Swal.fire('Error', 'Campaign not found', 'error');
                 }
             } catch (error) {
                 console.error('Error fetching campaign:', error);
+                Swal.fire('Error', 'Failed to fetch campaign data', 'error');
             } finally {
                 setIsLoading(false);
             }
@@ -53,12 +56,13 @@ const UpdateCampaign = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(campaign),
-                
             });
+    
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.message || 'Failed to update campaign');
+                throw new Error(errorData.message || `Failed to update campaign. Status: ${response.status}`);
             }
+    
             Swal.fire('Success!', 'Campaign updated successfully!', 'success');
             navigate('/myCampaigns');
         } catch (error) {
@@ -67,8 +71,6 @@ const UpdateCampaign = () => {
         }
     };
     
-    
-
     if (isLoading) {
         return <p>Loading campaign...</p>;
     }
