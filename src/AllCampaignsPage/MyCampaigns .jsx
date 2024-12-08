@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';  // Make sure you have this import for Link
+import { Link } from 'react-router-dom'; 
 
 const MyCampaigns = () => {
     const [campaigns, setCampaigns] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const userEmail = 'user@example.com'; // Replace with dynamic email if required
+    const userEmail = 'user@example.com'; 
 
     useEffect(() => {
         const fetchCampaigns = async () => {
