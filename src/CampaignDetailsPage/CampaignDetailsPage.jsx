@@ -115,6 +115,8 @@ const CampaignDetailsPage = () => {
   }
 
   return (
+
+    // this is details page
     <div className="max-w-md mx-auto mt-10 p-4 border rounded-lg shadow-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
       <div className="border rounded-lg p-4">
         <h2 className="text-3xl font-semibold mb-5">{campaign.title}</h2>
