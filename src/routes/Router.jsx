@@ -1,11 +1,11 @@
 import React from "react";
 import { createHashRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import Home from "../routes/Home/Home";
+// import Home from "../routes/Home/Home";
 import AllCampaigns from "../AllCampaignsPage/AllCampaignsPage";
 // import AddNewCampaign from "../AllCampaignsPage/AddNewCampaignPage";
 import MyCampaigns from "../AllCampaignsPage/MyCampaigns ";
-import MyDonations from "../AllCampaignsPage/MyDonationsPage";
+// import MyDonations from "../AllCampaignsPage/MyDonationsPage";
 import Login from "../login/LoginPage";
 import Register from "../RegisterPage/RegisterPage";
 import NotFound from "../routes/NotFound";
@@ -13,8 +13,9 @@ import PrivateRoute from "../routes/PrivateRoute";
 import AddNewCampaignPage from "../AllCampaignsPage/AddNewCampaignPage";
 import HomePage from "../Homepage/Homepage";
 import CampaignDetailsPage from "../CampaignDetailsPage/CampaignDetailsPage";
-import MyDonationsPage from "../AllCampaignsPage/MyDonationsPage";
+// import MyDonationsPage from "../AllCampaignsPage/MyDonationsPage";
 import ForgotPassword from "../forgetPass/ForgotPassword";
+import MyDonationsPage from "../AllCampaignsPage/MyDonationsPage";
 
 const Router = createHashRouter([
  
@@ -53,6 +54,7 @@ const Router = createHashRouter([
       <PrivateRoute>
         <Layout>
           <MyCampaigns />
+
         </Layout>
       </PrivateRoute>
     ),

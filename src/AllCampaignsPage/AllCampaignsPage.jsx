@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 const AllCampaignsPage = () => {
   const [campaigns, setCampaigns] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
+  const [sortOrder, setSortOrder] = useState('asc'); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,14 +23,45 @@ const AllCampaignsPage = () => {
     fetchCampaigns();
   }, []);
 
+ 
+  const sortCampaignsByMinDonation = (campaigns, order) => {
+    return campaigns.sort((a, b) => {
+      const minDonationA = a.min_donation;
+      const minDonationB = b.min_donation;
+      if (order === 'asc') {
+        return minDonationA - minDonationB;
+      } else {
+        return minDonationB - minDonationA;
+      }
+    });
+  };
+
+ 
+  const handleSort = () => {
+    setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'));
+  };
+
+
   const handleSeeMore = (campaignId) => {
     navigate(`/campaign/${campaignId}`);
   };
 
+
+  const sortedCampaigns = sortCampaignsByMinDonation(campaigns, sortOrder);
+
   return (
-    // all campaign show here 
     <div className="overflow-x-auto p-5">
       <h2 className="text-3xl font-semibold text-center mb-6">All Campaigns</h2>
+
+      {/* Sort Button */}
+      <div className="text-center mb-6">
+        <button
+          onClick={handleSort}
+          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
+        >
+          Sort by Minimum Donation ({sortOrder === 'asc' ? 'Ascending' : 'Descending'})
+        </button>
+      </div>
 
       {/* Loading Spinner */}
       {isLoading ? (
@@ -43,17 +75,17 @@ const AllCampaignsPage = () => {
               <tr>
                 <th className="px-4 py-3 border">Title</th>
                 <th className="px-4 py-3 border">Description</th>
-                <th className="px-4 py-3 border">Goal Amount</th>
+                <th className="px-4 py-3 border">Minimum Donation</th>
                 <th className="px-4 py-3 border">Deadline</th>
                 <th className="px-4 py-3 border">Actions</th>
               </tr>
             </thead>
             <tbody>
-              {campaigns.map((campaign) => (
+              {sortedCampaigns.map((campaign) => (
                 <tr key={campaign._id} className="border-b hover:bg-gray-50">
                   <td className="px-4 py-3 border">{campaign.title}</td>
                   <td className="px-4 py-3 border">{campaign.description.slice(0, 100)}...</td>
-                  <td className="px-4 py-3 border">${campaign.goalAmount}</td>
+                  <td className="px-4 py-3 border">${campaign.min_donation}</td>
                   <td className="px-4 py-3 border">{new Date(campaign.deadline).toLocaleDateString()}</td>
                   <td className="px-4 py-3 border text-center">
                     <button
