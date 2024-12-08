@@ -56,7 +56,7 @@ const UpdateCampaign = () => {
             });
             if (response.ok) {
                 Swal.fire('Success!', 'Campaign updated successfully!', 'success');
-                navigate('/myCampaigns');
+                navigate('/myCampaigns');  // Redirect after success
             } else {
                 Swal.fire('Error', 'There was an error updating the campaign.', 'error');
             }
@@ -65,6 +65,7 @@ const UpdateCampaign = () => {
             Swal.fire('Error', 'There was an error updating the campaign.', 'error');
         }
     };
+    
 
     if (isLoading) {
         return <p>Loading campaign...</p>;
