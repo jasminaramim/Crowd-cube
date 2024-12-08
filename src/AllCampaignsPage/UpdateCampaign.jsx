@@ -53,18 +53,20 @@ const UpdateCampaign = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(campaign),
+                
             });
-            if (response.ok) {
-                Swal.fire('Success!', 'Campaign updated successfully!', 'success');
-                navigate('/myCampaigns');  // Redirect after success
-            } else {
-                Swal.fire('Error', 'There was an error updating the campaign.', 'error');
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to update campaign');
             }
+            Swal.fire('Success!', 'Campaign updated successfully!', 'success');
+            navigate('/myCampaigns');
         } catch (error) {
             console.error('Error updating campaign:', error);
-            Swal.fire('Error', 'There was an error updating the campaign.', 'error');
+            Swal.fire('Error', error.message || 'There was an error updating the campaign.', 'error');
         }
     };
+    
     
 
     if (isLoading) {
