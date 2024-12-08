@@ -15,7 +15,7 @@ const CampaignDetailsPage = () => {
   useEffect(() => {
     const fetchCampaignDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/campaigns/${id}`);
+        const response = await fetch(`https://b10-a10-server-side-jasminaramim.vercel.app/campaigns/${id}`);
         if (!response.ok) {
           throw new Error("Campaign not found");
         }
@@ -61,7 +61,7 @@ const CampaignDetailsPage = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/donation", {
+      const response = await fetch("https://b10-a10-server-side-jasminaramim.vercel.app/donation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(donationData),

@@ -11,7 +11,7 @@ const MyDonationsPage = () => {
     const fetchMyDonations = async () => {
       if (user && user.email) {
         try {
-          const response = await fetch(`http://localhost:3000/myDonations?email=${user.email}`);
+          const response = await fetch(`https://b10-a10-server-side-jasminaramim.vercel.app/myDonations?email=${user.email}`);
           const data = await response.json();
           setDonations(data);
         } catch (error) {

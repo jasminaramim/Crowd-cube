@@ -44,7 +44,7 @@ const AddNewCampaignPage = () => {
 
     
         try {
-            const response = await fetch('http://localhost:3000/campaigns', {
+            const response = await fetch('https://b10-a10-server-side-jasminaramim.vercel.app/campaigns', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

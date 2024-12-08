@@ -37,7 +37,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const response = await fetch('http://localhost:3000/campaigns');
+        const response = await fetch('https://b10-a10-server-side-jasminaramim.vercel.app/campaigns');
         const data = await response.json();
         const currentDate = new Date();
         const runningCampaigns = data.filter((campaign) => new Date(campaign.deadline) > currentDate);

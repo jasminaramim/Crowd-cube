@@ -16,6 +16,7 @@ import CampaignDetailsPage from "../CampaignDetailsPage/CampaignDetailsPage";
 // import MyDonationsPage from "../AllCampaignsPage/MyDonationsPage";
 import ForgotPassword from "../forgetPass/ForgotPassword";
 import MyDonationsPage from "../AllCampaignsPage/MyDonationsPage";
+import UpdateCampaign from "../AllCampaignsPage/UpdateCampaign";
 
 const Router = createHashRouter([
  
@@ -106,7 +107,16 @@ const Router = createHashRouter([
     ),
   },
 
-
+  {
+    path: "/updateCampaign/:id",
+    element: (
+      <PrivateRoute>
+        <Layout>
+          <UpdateCampaign />
+        </Layout>
+      </PrivateRoute>
+    ),
+  },
 
   {
     path: "*",
