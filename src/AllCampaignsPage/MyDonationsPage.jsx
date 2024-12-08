@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../AuthContext/AuthProvider'; // assuming you have auth context to get user data
+import { useAuth } from '../AuthContext/AuthProvider'; 
 import Swal from 'sweetalert2';
 
 const MyDonationsPage = () => {
-  const { user } = useAuth(); // Assuming user is in context
+  const { user } = useAuth(); 
   const [donations, setDonations] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -58,6 +58,7 @@ const MyDonationsPage = () => {
     <div className="grid mt-10 mb grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {donations.map((donation) => (
         <div key={donation._id} className="bg-white shadow-lg rounded-lg p-4">
+          <img src={donation.image} alt="" />
           <h3 className="text-xl font-semibold">{donation.campaignTitle}</h3>
           <p className="text-gray-600">Amount: ${donation.amount}</p>
           <p className="text-gray-500">Date: {new Date(donation.date).toLocaleDateString()}</p>
