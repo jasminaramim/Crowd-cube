@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Change here
+import { useParams, useNavigate } from 'react-router-dom'; 
 import Swal from 'sweetalert2';
 
 const UpdateCampaign = () => {
-    const { id } = useParams(); // Get campaign ID from URL
-    const navigate = useNavigate(); // Use useNavigate here for navigation
+    const { id } = useParams(); 
+    const navigate = useNavigate(); 
     const [campaign, setCampaign] = useState({
         title: '',
         description: '',
@@ -56,7 +56,7 @@ const UpdateCampaign = () => {
             });
             if (response.ok) {
                 Swal.fire('Success!', 'Campaign updated successfully!', 'success');
-                navigate('/myCampaigns'); // Use navigate here instead of history.push
+                navigate('/myCampaigns');
             } else {
                 Swal.fire('Error', 'There was an error updating the campaign.', 'error');
             }
