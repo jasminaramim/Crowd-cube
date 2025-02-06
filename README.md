@@ -6,8 +6,7 @@
 ![crowd cube Website Screenshot](./src/assets/image.png)
 <!-- ![Blood Donation Website Screenshot](./src/assets/images/img22.png) -->
 
-## Screenshot
-(Add a clean screenshot of your project here)
+
 
 ## Features
 1. **Campaign Creation**: Easily create campaigns with custom titles, descriptions, donation goals, and deadlines.
@@ -55,6 +54,6 @@
 
 ## Relevant Links
 - [Live Site](https://rococo-zabaione-06675f.netlify.app/)
-- [GitHub Repository](https://github.com/programming-hero-web-course2/b10-a10-client-side-jasminaramim)
+- [GitHub Repository]([https://github.com/programming-hero-web-course2/b10-a10-client-side-jasminaramim](https://github.com/jasminaramim/Crowd-cube))
 - [Firebase Documentation](https://firebase.google.com/docs)
 
